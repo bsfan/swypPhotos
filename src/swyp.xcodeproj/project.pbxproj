@@ -21,8 +21,6 @@
 		3ECFB30214E2014600D02261 /* grippers.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ECFB30014E2014600D02261 /* grippers.png */; };
 		3ECFB30314E2014600D02261 /* grippers@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ECFB30114E2014600D02261 /* grippers@2x.png */; };
 		7901263F14C37242005F423B /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7901263D14C3723A005F423B /* GameKit.framework */; };
-		7901264614C3727D005F423B /* top_curl.png in Resources */ = {isa = PBXBuildFile; fileRef = 7901264214C3727D005F423B /* top_curl.png */; };
-		7901264714C3727D005F423B /* top_curl@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7901264314C3727D005F423B /* top_curl@2x.png */; };
 		7901265C14C38423005F423B /* swypPromptHud.png in Resources */ = {isa = PBXBuildFile; fileRef = 7901265A14C38423005F423B /* swypPromptHud.png */; };
 		7901265D14C38423005F423B /* swypPromptHud@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7901265B14C38423005F423B /* swypPromptHud@2x.png */; };
 		7902D68014D49C7F00C71731 /* liblibSwyp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7902D67F14D49C4E00C71731 /* liblibSwyp.a */; };
@@ -101,8 +99,6 @@
 		3ECFB30014E2014600D02261 /* grippers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = grippers.png; path = ../../../../iSwyp/libSwyp/swypBundleResources/grippers.png; sourceTree = "<group>"; };
 		3ECFB30114E2014600D02261 /* grippers@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "grippers@2x.png"; path = "../../../../iSwyp/libSwyp/swypBundleResources/grippers@2x.png"; sourceTree = "<group>"; };
 		7901263D14C3723A005F423B /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
-		7901264214C3727D005F423B /* top_curl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = top_curl.png; sourceTree = "<group>"; };
-		7901264314C3727D005F423B /* top_curl@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "top_curl@2x.png"; sourceTree = "<group>"; };
 		7901265A14C38423005F423B /* swypPromptHud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = swypPromptHud.png; sourceTree = "<group>"; };
 		7901265B14C38423005F423B /* swypPromptHud@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "swypPromptHud@2x.png"; sourceTree = "<group>"; };
 		7902D67714D49C4D00C71731 /* libSwyp.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libSwyp.xcodeproj; path = ../lib/swyp/libSwyp/libSwyp.xcodeproj; sourceTree = "<group>"; };
@@ -315,8 +311,6 @@
 				79CE44F614D9C111009EA4C0 /* swypWorkspaceBackground.png */,
 				7901265A14C38423005F423B /* swypPromptHud.png */,
 				7901265B14C38423005F423B /* swypPromptHud@2x.png */,
-				7901264214C3727D005F423B /* top_curl.png */,
-				7901264314C3727D005F423B /* top_curl@2x.png */,
 				796B8E0B14BE8F0E004FEBE3 /* connectivity-bluetooth-disabled.png */,
 				796B8E0C14BE8F0E004FEBE3 /* connectivity-bluetooth-disabled@2x.png */,
 				796B8E0D14BE8F0E004FEBE3 /* connectivity-bluetooth-enabled.png */,
@@ -436,8 +430,6 @@
 				796B8E1814BE8F0E004FEBE3 /* connectivity-world-disabled@2x.png in Resources */,
 				796B8E1914BE8F0E004FEBE3 /* connectivity-world-enabled.png in Resources */,
 				796B8E1A14BE8F0E004FEBE3 /* connectivity-world-enabled@2x.png in Resources */,
-				7901264614C3727D005F423B /* top_curl.png in Resources */,
-				7901264714C3727D005F423B /* top_curl@2x.png in Resources */,
 				7901265C14C38423005F423B /* swypPromptHud.png in Resources */,
 				7901265D14C38423005F423B /* swypPromptHud@2x.png in Resources */,
 				79CE44F714D9C111009EA4C0 /* swypWorkspaceBackground.png in Resources */,
