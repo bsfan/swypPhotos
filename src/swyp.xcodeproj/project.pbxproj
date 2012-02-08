@@ -18,6 +18,8 @@
 		28AD733F0D9D9553002E5188 /* MainWindow_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow_iPad.xib */; };
 		28EEBFDD1118E19E00187D67 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28EEBFDC1118E19E00187D67 /* CoreData.framework */; };
 		28EEC04B1118E28000187D67 /* AppDelegate_Shared.m in Sources */ = {isa = PBXBuildFile; fileRef = 28EEC04A1118E28000187D67 /* AppDelegate_Shared.m */; };
+		3ECFB30214E2014600D02261 /* grippers.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ECFB30014E2014600D02261 /* grippers.png */; };
+		3ECFB30314E2014600D02261 /* grippers@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ECFB30114E2014600D02261 /* grippers@2x.png */; };
 		7901263F14C37242005F423B /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7901263D14C3723A005F423B /* GameKit.framework */; };
 		7901264614C3727D005F423B /* top_curl.png in Resources */ = {isa = PBXBuildFile; fileRef = 7901264214C3727D005F423B /* top_curl.png */; };
 		7901264714C3727D005F423B /* top_curl@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7901264314C3727D005F423B /* top_curl@2x.png */; };
@@ -96,6 +98,8 @@
 		28EEC04A1118E28000187D67 /* AppDelegate_Shared.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate_Shared.m; path = Shared/AppDelegate_Shared.m; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Shared/main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* swypPhotos_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = swypPhotos_Prefix.pch; sourceTree = "<group>"; };
+		3ECFB30014E2014600D02261 /* grippers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = grippers.png; path = ../../../../iSwyp/libSwyp/swypBundleResources/grippers.png; sourceTree = "<group>"; };
+		3ECFB30114E2014600D02261 /* grippers@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "grippers@2x.png"; path = "../../../../iSwyp/libSwyp/swypBundleResources/grippers@2x.png"; sourceTree = "<group>"; };
 		7901263D14C3723A005F423B /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		7901264214C3727D005F423B /* top_curl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = top_curl.png; sourceTree = "<group>"; };
 		7901264314C3727D005F423B /* top_curl@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "top_curl@2x.png"; sourceTree = "<group>"; };
@@ -306,6 +310,8 @@
 		797D6FFE143D04340086D446 /* swypBundleResources */ = {
 			isa = PBXGroup;
 			children = (
+				3ECFB30014E2014600D02261 /* grippers.png */,
+				3ECFB30114E2014600D02261 /* grippers@2x.png */,
 				79CE44F614D9C111009EA4C0 /* swypWorkspaceBackground.png */,
 				7901265A14C38423005F423B /* swypPromptHud.png */,
 				7901265B14C38423005F423B /* swypPromptHud@2x.png */,
@@ -435,6 +441,8 @@
 				7901265C14C38423005F423B /* swypPromptHud.png in Resources */,
 				7901265D14C38423005F423B /* swypPromptHud@2x.png in Resources */,
 				79CE44F714D9C111009EA4C0 /* swypWorkspaceBackground.png in Resources */,
+				3ECFB30214E2014600D02261 /* grippers.png in Resources */,
+				3ECFB30314E2014600D02261 /* grippers@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
