@@ -8,14 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import <libswyp/libswyp.h>
+#import "KBView.h"
 
 @class KBViewController;
-@interface KBViewController : UIViewController <swypBackedPhotoDataSourceDelegate> {
+@interface KBViewController : UIViewController <UITextViewDelegate, KBViewDelegate> {
 		
 	swypWorkspaceViewController *	_swypWorkspace;
     
     UIButton                    *   _activateSwypButton;
 }
 @property (nonatomic, readonly) swypWorkspaceViewController * swypWorkspace;
+@property (nonatomic, retain) UITextView *textView;
+
+-(void)screenKeyPressed:(id)sender;
 
 @end

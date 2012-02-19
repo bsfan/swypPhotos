@@ -17,8 +17,9 @@
 
 -(BOOL) application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
     kbVC	=	[[KBViewController alloc] init];
-	[[kbVC view] setFrame:[self.window bounds]];
-	
+	[[kbVC view] setFrame:self.window.frame];
+    
+    self.window.autoresizesSubviews = YES;	
     self.window.backgroundColor = [UIColor blackColor];
 	[self.window setRootViewController:kbVC];
     [self.window makeKeyAndVisible];

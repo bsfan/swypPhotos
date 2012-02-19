@@ -42,6 +42,7 @@
 
 @implementation KBViewController
 @synthesize swypWorkspace = _swypWorkspace;
+@synthesize textView = _textView;
 
 - (id)init{
     self = [super initWithNibName:nil bundle:nil];
@@ -78,8 +79,16 @@
 }
 - (void)viewDidLoad{
     [super viewDidLoad];
-	
-	_activateSwypButton	=	[UIButton buttonWithType:UIButtonTypeCustom];
+    
+    self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+    self.view.backgroundColor  = [UIColor redColor];
+        
+    self.textView = [[UITextView alloc] initWithFrame:self.view.frame];
+    [self.textView setAutoresizingMask:UIViewAutoresizingFlexibleWidth| UIViewAutoresizingFlexibleHeight];
+    self.textView.delegate = self;
+    [self.view addSubview:self.textView];
+    
+    _activateSwypButton	=	[UIButton buttonWithType:UIButtonTypeCustom];
 	UIImage *	swypActivateImage	=	[UIImage imageNamed:@"swypPhotosHud"];
 	[_activateSwypButton setBackgroundImage:swypActivateImage forState:UIControlStateNormal];
 	[self frameActivateButtonWithSize:swypActivateImage.size];
@@ -87,16 +96,24 @@
     
     UISwipeGestureRecognizer *swipeUpRecognizer = [[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(activateSwypButtonPressed:)] autorelease];
     swipeUpRecognizer.direction = UISwipeGestureRecognizerDirectionUp;
-    
     [_activateSwypButton addGestureRecognizer:swipeUpRecognizer];
     
 	[self.view addSubview:_activateSwypButton];
+    
+    KBView *keyBoard = [[KBView alloc] initWithFrame:self.view.frame];
+    keyBoard.delegate = self;
+    [keyBoard makeLeftKeyboard];
+    [self.view addSubview:keyBoard];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 
     [self frameActivateButtonWithSize:_activateSwypButton.size];
+}
+
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView {
+    return NO;
 }
 
 - (void)viewDidUnload{
@@ -114,6 +131,10 @@
 -(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
     [self frameActivateButtonWithSize:_activateSwypButton.size];
     _activateSwypButton.alpha = 1;
+}
+
+-(void)screenKeyPressed:(id)sender {
+    NSLog(@"%@", sender);
 }
 
 #pragma mark - Swyp

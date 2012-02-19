@@ -20,6 +20,7 @@
 		3E83590014F0B059001A2970 /* MainWindow_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E8358FA14F0B059001A2970 /* MainWindow_iPad.xib */; };
 		3E83590114F0B059001A2970 /* AppDelegate_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E8358FD14F0B059001A2970 /* AppDelegate_iPhone.m */; };
 		3E83590214F0B059001A2970 /* MainWindow_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E8358FE14F0B059001A2970 /* MainWindow_iPhone.xib */; };
+		3E83590E14F0B2EC001A2970 /* KBView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E83590D14F0B2EC001A2970 /* KBView.m */; };
 		7901263F14C37242005F423B /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7901263D14C3723A005F423B /* GameKit.framework */; };
 		7901265C14C38423005F423B /* swypPromptHud.png in Resources */ = {isa = PBXBuildFile; fileRef = 7901265A14C38423005F423B /* swypPromptHud.png */; };
 		7901265D14C38423005F423B /* swypPromptHud@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7901265B14C38423005F423B /* swypPromptHud@2x.png */; };
@@ -89,6 +90,8 @@
 		3E8358FC14F0B059001A2970 /* AppDelegate_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate_iPhone.h; sourceTree = "<group>"; };
 		3E8358FD14F0B059001A2970 /* AppDelegate_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate_iPhone.m; sourceTree = "<group>"; };
 		3E8358FE14F0B059001A2970 /* MainWindow_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow_iPhone.xib; sourceTree = "<group>"; };
+		3E83590C14F0B2EC001A2970 /* KBView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KBView.h; path = Shared/KBView.h; sourceTree = SOURCE_ROOT; };
+		3E83590D14F0B2EC001A2970 /* KBView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KBView.m; path = Shared/KBView.m; sourceTree = SOURCE_ROOT; };
 		7901263D14C3723A005F423B /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		7901265A14C38423005F423B /* swypPromptHud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = swypPromptHud.png; sourceTree = "<group>"; };
 		7901265B14C38423005F423B /* swypPromptHud@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "swypPromptHud@2x.png"; sourceTree = "<group>"; };
@@ -296,6 +299,8 @@
 			children = (
 				79C50A61148B0AD2000FDCA1 /* KBViewController.h */,
 				79C50A62148B0AD2000FDCA1 /* KBViewController.m */,
+				3E83590C14F0B2EC001A2970 /* KBView.h */,
+				3E83590D14F0B2EC001A2970 /* KBView.m */,
 				79B6E0451441F94800CF0A28 /* UIViewAdditions.h */,
 				79B6E0461441F94800CF0A28 /* UIViewAdditions.m */,
 			);
@@ -410,6 +415,7 @@
 				3E8358F614F0B032001A2970 /* AppDelegate_Shared.m in Sources */,
 				3E8358FF14F0B059001A2970 /* AppDelegate_iPad.m in Sources */,
 				3E83590114F0B059001A2970 /* AppDelegate_iPhone.m in Sources */,
+				3E83590E14F0B2EC001A2970 /* KBView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
