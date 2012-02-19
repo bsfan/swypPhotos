@@ -144,8 +144,8 @@
     NSString *letter = theButton.currentTitle;
     NSNumber *currentTime = [NSNumber numberWithDouble:CACurrentMediaTime()];
     _lastKeyPress = @{ @"letter" : letter, @"time" : currentTime };
-    [_uncertainText addObject:@[currentTime, letter]];
-    [self updateText];
+    // [_uncertainText addObject:@[currentTime, letter]];
+    _textView.text = [_textView.text stringByAppendingString:letter];
 
     // fix this... anyobject...
     swypConnectionSession *session = [[[_swypWorkspace connectionManager] activeConnectionSessions] anyObject];
@@ -153,11 +153,13 @@
 }
 
 - (void)updateText{
+    /*
     NSString *uncertainString;
     for (NSArray *item in _uncertainText){
         uncertainString = [uncertainString stringByAppendingString:[item objectAtIndex:1]];
     }
     _textView.text = [_certainText stringByAppendingString:uncertainString];
+     */
 }
 
 #pragma mark - Swyp out
@@ -167,6 +169,10 @@
 }
 - (NSArray*)		supportedFileTypesForContentWithID: (NSString*)contentID{
 	return [NSArray arrayWithObject:@"kbType"];
+}
+
+- (UIImage *)iconImageForContentWithID:(NSString *)contentID ofMaxSize:(CGSize)maxIconSize {
+    return nil;
 }
 
 - (NSData*)	dataForContentWithID: (NSString*)contentID fileType:	(swypFileTypeString*)type{
@@ -189,6 +195,8 @@
         NSDictionary *data = [NSKeyedUnarchiver unarchiveObjectWithData:streamData];
         NSLog(@"%@", data);
         
+        _textView.text = [_textView.text stringByAppendingString:[data objectForKey:@"letter"]];
+        /*
         NSString *newCertainText;
         for (int i = 0; i < _uncertainText.count; i++){
             if ([[_uncertainText objectAtIndex:i] objectAtIndex:0] < [data objectForKey:@"time"]){
@@ -202,6 +210,7 @@
         newCertainText = [newCertainText stringByAppendingString:[data objectForKey:@"letter"]];
         _certainText = [_certainText stringByAppendingString:_certainText];
         [self updateText];
+         */
 	}
 }
 
