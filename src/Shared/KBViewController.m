@@ -7,6 +7,7 @@
 //
 
 #import "KBViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 // To deal with rotation madness
 @interface UIApplication (AppDimensions)
@@ -83,9 +84,10 @@
     self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
     self.view.backgroundColor  = [UIColor redColor];
         
-    self.textView = [[UITextView alloc] initWithFrame:self.view.frame];
+    self.textView = [[UITextView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.textView setAutoresizingMask:UIViewAutoresizingFlexibleWidth| UIViewAutoresizingFlexibleHeight];
     self.textView.delegate = self;
+    [self.textView setFont:[UIFont systemFontOfSize:24]];
     [self.view addSubview:self.textView];
     
     _activateSwypButton	=	[UIButton buttonWithType:UIButtonTypeCustom];
@@ -100,10 +102,13 @@
     
 	[self.view addSubview:_activateSwypButton];
     
-    KBView *keyBoard = [[KBView alloc] initWithFrame:self.view.frame];
-    keyBoard.delegate = self;
-    [keyBoard makeLeftKeyboard];
-    [self.view addSubview:keyBoard];
+    _uncertainText = [NSMutableArray new];
+    _certainText = @"";
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(connected) name:@"connected" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleSwyp:) name:@"swypin" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleSwyp:) name:@"swypout" object:nil];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -133,11 +138,92 @@
     _activateSwypButton.alpha = 1;
 }
 
--(void)screenKeyPressed:(id)sender {
-    NSLog(@"%@", sender);
+- (void)screenKeyPressed:(id)sender {
+    UIButton *theButton = (UIButton *)sender;
+    NSLog(@"%@", theButton.currentTitle);
+    NSString *letter = theButton.currentTitle;
+    NSNumber *currentTime = [NSNumber numberWithDouble:CACurrentMediaTime()];
+    _lastKeyPress = @{ @"letter" : letter, @"time" : currentTime };
+    [_uncertainText addObject:@[currentTime, letter]];
+    [self updateText];
+
+    // fix this... anyobject...
+    swypConnectionSession *session = [[[_swypWorkspace connectionManager] activeConnectionSessions] anyObject];
+    [[_swypWorkspace contentManager] sendContentWithID:letter throughConnectionSession:session];
 }
 
+- (void)updateText{
+    NSString *uncertainString;
+    for (NSArray *item in _uncertainText){
+        uncertainString = [uncertainString stringByAppendingString:[item objectAtIndex:1]];
+    }
+    _textView.text = [_certainText stringByAppendingString:uncertainString];
+}
+
+#pragma mark - Swyp out
+
+- (NSArray*)	idsForAllContent{
+	return nil;
+}
+- (NSArray*)		supportedFileTypesForContentWithID: (NSString*)contentID{
+	return [NSArray arrayWithObject:@"kbType"];
+}
+
+- (NSData*)	dataForContentWithID: (NSString*)contentID fileType:	(swypFileTypeString*)type{
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:_lastKeyPress];
+	return data;
+}
+
+
 #pragma mark - Swyp
+
+-(NSArray*)supportedFileTypesForReceipt{
+	//everything supported, plus the thumbnail type as a hack
+	return [NSArray arrayWithObjects:@"kbType", nil];
+}
+
+-(void)	yieldedData:(NSData*)streamData ofType:(NSString *)streamType fromDiscernedStream:(swypDiscernedInputStream *)discernedStream inConnectionSession:(swypConnectionSession *)session{
+	EXOLog(@" datasource received data of type: %@",[discernedStream streamType]);
+	
+	if ([streamType isFileType:@"kbType"]){
+        NSDictionary *data = [NSKeyedUnarchiver unarchiveObjectWithData:streamData];
+        NSLog(@"%@", data);
+        
+        NSString *newCertainText;
+        for (int i = 0; i < _uncertainText.count; i++){
+            if ([[_uncertainText objectAtIndex:i] objectAtIndex:0] < [data objectForKey:@"time"]){
+                for (int j = 0; j < i; j++){
+                    newCertainText = [newCertainText stringByAppendingString:[_uncertainText objectAtIndex:j]];
+                }
+                [_uncertainText removeObjectsInRange:NSMakeRange(0, i)];
+                break;
+            }
+        }
+        newCertainText = [newCertainText stringByAppendingString:[data objectForKey:@"letter"]];
+        _certainText = [_certainText stringByAppendingString:_certainText];
+        [self updateText];
+	}
+}
+
+- (void)handleSwyp:(NSNotification *)notification {
+    swypInfoRef *swypInfo = [[notification userInfo] objectForKey:@"swyp"];
+    lastEdge = [swypInfo screenEdgeOfSwyp];
+}
+
+- (void)connected {
+    [self dismissModalViewControllerAnimated:YES];
+    [_activateSwypButton removeFromSuperview];
+    _keyboard = [[KBView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    _keyboard.delegate = self;
+    if (lastEdge == swypScreenEdgeTypeLeft){
+        [_keyboard makeRightKeyboard];
+    } else if (lastEdge == swypScreenEdgeTypeRight){
+        [_keyboard makeLeftKeyboard];
+    } else {
+        NSLog(@"Unexpected keyboard type.");
+    }
+    [self.view addSubview:_keyboard];
+}
 
 
 @end

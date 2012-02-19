@@ -11,14 +11,19 @@
 #import "KBView.h"
 
 @class KBViewController;
-@interface KBViewController : UIViewController <UITextViewDelegate, KBViewDelegate> {
+@interface KBViewController : UIViewController <UITextViewDelegate, KBViewDelegate,
+swypConnectionSessionDataDelegate, swypContentDataSourceProtocol> {
 		
 	swypWorkspaceViewController *	_swypWorkspace;
-    
+    swypScreenEdgeType lastEdge;
+    KBView *_keyboard;
     UIButton                    *   _activateSwypButton;
+    NSDictionary *_lastKeyPress;
 }
 @property (nonatomic, readonly) swypWorkspaceViewController * swypWorkspace;
 @property (nonatomic, retain) UITextView *textView;
+@property (nonatomic, retain) NSString *certainText;
+@property (nonatomic, retain) NSMutableArray *uncertainText;
 
 -(void)screenKeyPressed:(id)sender;
 
