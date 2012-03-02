@@ -5,9 +5,11 @@
 //  Created by Alexander List on 12/3/11.
 //  Copyright (c) 2011 ExoMachina. All rights reserved.
 //
-
-#import "KBViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "KBViewController.h"
+#import <libSwyp/swyp.h>
+
+static NSString *kbType = @"kbType";
 
 // To deal with rotation madness
 @interface UIApplication (AppDimensions)
@@ -134,7 +136,6 @@
 }
 
 -(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
-    [self frameActivateButtonWithSize:_activateSwypButton.size];
     _activateSwypButton.alpha = 1;
 }
 
@@ -142,73 +143,77 @@
     UIButton *theButton = (UIButton *)sender;
     NSLog(@"%@", theButton.currentTitle);
     NSString *letter = theButton.currentTitle;
-    NSNumber *currentTime = [NSNumber numberWithDouble:CACurrentMediaTime()];
-    _lastKeyPress = @{ @"letter" : letter, @"time" : currentTime };
-    // [_uncertainText addObject:@[currentTime, letter]];
+    double currentTime = CACurrentMediaTime();
+    NSNumber *elapsedTime = [NSNumber numberWithDouble:(currentTime-_connectionTime)];
+    
+    _lastKeyPress = @{ @"letter" : letter, @"time" :  elapsedTime};
+    // [_uncertainText addObject:@[elapsedTime, letter]];
+    // [self updateText];
     _textView.text = [_textView.text stringByAppendingString:letter];
 
-    // fix this... anyobject...
+    //@TODO: fix this... anyobject...
     swypConnectionSession *session = [[[_swypWorkspace connectionManager] activeConnectionSessions] anyObject];
     [[_swypWorkspace contentManager] sendContentWithID:letter throughConnectionSession:session];
 }
 
-- (void)updateText{
-    /*
-    NSString *uncertainString;
+- (void)updateText {
+    
+    NSString *uncertainString = @"";
     for (NSArray *item in _uncertainText){
         uncertainString = [uncertainString stringByAppendingString:[item objectAtIndex:1]];
     }
+    if (!_certainText) _certainText = @"";
     _textView.text = [_certainText stringByAppendingString:uncertainString];
-     */
 }
 
 #pragma mark - Swyp out
 
-- (NSArray*)	idsForAllContent{
+- (NSArray *)idsForAllContent {
 	return nil;
 }
-- (NSArray*)		supportedFileTypesForContentWithID: (NSString*)contentID{
-	return [NSArray arrayWithObject:@"kbType"];
+- (NSArray *)supportedFileTypesForContentWithID:(NSString *)contentID {
+    return @[kbType];
 }
 
 - (UIImage *)iconImageForContentWithID:(NSString *)contentID ofMaxSize:(CGSize)maxIconSize {
     return nil;
 }
 
-- (NSData*)	dataForContentWithID: (NSString*)contentID fileType:	(swypFileTypeString*)type{
+- (NSData*)	dataForContentWithID:(NSString *)contentID fileType:(swypFileTypeString *)type{
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:_lastKeyPress];
-	return data;
+    return data;
 }
-
 
 #pragma mark - Swyp
 
--(NSArray*)supportedFileTypesForReceipt{
-	//everything supported, plus the thumbnail type as a hack
-	return [NSArray arrayWithObjects:@"kbType", nil];
+-(NSArray*)supportedFileTypesForReceipt {
+	return @[kbType];
 }
 
--(void)	yieldedData:(NSData*)streamData ofType:(NSString *)streamType fromDiscernedStream:(swypDiscernedInputStream *)discernedStream inConnectionSession:(swypConnectionSession *)session{
+-(void)	yieldedData:(NSData *)streamData ofType:(NSString *)streamType 
+fromDiscernedStream:(swypDiscernedInputStream *)discernedStream 
+inConnectionSession:(swypConnectionSession *)session{
 	EXOLog(@" datasource received data of type: %@",[discernedStream streamType]);
 	
-	if ([streamType isFileType:@"kbType"]){
+	if ([streamType isEqualToString:kbType]){
         NSDictionary *data = [NSKeyedUnarchiver unarchiveObjectWithData:streamData];
         NSLog(@"%@", data);
         
         _textView.text = [_textView.text stringByAppendingString:[data objectForKey:@"letter"]];
+
         /*
-        NSString *newCertainText;
+        NSString *newCertainText = @"";
         for (int i = 0; i < _uncertainText.count; i++){
-            if ([[_uncertainText objectAtIndex:i] objectAtIndex:0] < [data objectForKey:@"time"]){
+            if ([data objectForKey:@"time"] > [[_uncertainText objectAtIndex:i] objectAtIndex:0]){
                 for (int j = 0; j < i; j++){
-                    newCertainText = [newCertainText stringByAppendingString:[_uncertainText objectAtIndex:j]];
+                    newCertainText = [newCertainText stringByAppendingString:[[_uncertainText objectAtIndex:j] objectAtIndex:1]];
                 }
                 [_uncertainText removeObjectsInRange:NSMakeRange(0, i)];
                 break;
             }
         }
         newCertainText = [newCertainText stringByAppendingString:[data objectForKey:@"letter"]];
-        _certainText = [_certainText stringByAppendingString:_certainText];
+        _certainText = [_certainText stringByAppendingString:newCertainText];
         [self updateText];
          */
 	}
@@ -221,7 +226,7 @@
 
 - (void)connected {
     [self dismissModalViewControllerAnimated:YES];
-    [_activateSwypButton removeFromSuperview];
+    _activateSwypButton.hidden = YES;
     _keyboard = [[KBView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     _keyboard.delegate = self;
     if (lastEdge == swypScreenEdgeTypeLeft){
@@ -232,6 +237,9 @@
         NSLog(@"Unexpected keyboard type.");
     }
     [self.view addSubview:_keyboard];
+    
+    _connectionTime = CACurrentMediaTime();
+    EXOLog(@"%f", _connectionTime);
 }
 
 

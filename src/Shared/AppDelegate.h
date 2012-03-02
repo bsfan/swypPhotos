@@ -13,14 +13,11 @@
 
 NSString * const swypPhotosWorkspaceIdentifier;
 
-@interface AppDelegate_Shared : NSObject <UIApplicationDelegate> {
-	
-    UIWindow *window;
-    
-	KBViewController	* kbVC;
+@interface AppDelegate : NSObject <UIApplicationDelegate> {
+	KBViewController *kbVC;
 }
 
-@property (nonatomic, retain) IBOutlet UIWindow *window;
+@property (nonatomic, retain) UIWindow *window;
 
 @end
 

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 45;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,13 +13,7 @@
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		28EEBFDD1118E19E00187D67 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28EEBFDC1118E19E00187D67 /* CoreData.framework */; };
 		3E8358C014F0AEE9001A2970 /* UIViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E8358BF14F0AEB8001A2970 /* UIViewAdditions.m */; };
-		3E8358F014F0AFC8001A2970 /* MainWindow_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E8358EB14F0AFC8001A2970 /* MainWindow_iPad.xib */; };
-		3E8358F214F0AFC8001A2970 /* MainWindow_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E8358EE14F0AFC8001A2970 /* MainWindow_iPhone.xib */; };
-		3E8358F614F0B032001A2970 /* AppDelegate_Shared.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E8358F514F0B032001A2970 /* AppDelegate_Shared.m */; };
-		3E8358FF14F0B059001A2970 /* AppDelegate_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E8358F914F0B059001A2970 /* AppDelegate_iPad.m */; };
-		3E83590014F0B059001A2970 /* MainWindow_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E8358FA14F0B059001A2970 /* MainWindow_iPad.xib */; };
-		3E83590114F0B059001A2970 /* AppDelegate_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E8358FD14F0B059001A2970 /* AppDelegate_iPhone.m */; };
-		3E83590214F0B059001A2970 /* MainWindow_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E8358FE14F0B059001A2970 /* MainWindow_iPhone.xib */; };
+		3E8358F614F0B032001A2970 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E8358F514F0B032001A2970 /* AppDelegate.m */; };
 		3E83590E14F0B2EC001A2970 /* KBView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E83590D14F0B2EC001A2970 /* KBView.m */; };
 		7901263F14C37242005F423B /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7901263D14C3723A005F423B /* GameKit.framework */; };
 		7901265C14C38423005F423B /* swypPromptHud.png in Resources */ = {isa = PBXBuildFile; fileRef = 7901265A14C38423005F423B /* swypPromptHud.png */; };
@@ -68,28 +62,16 @@
 
 /* Begin PBXFileReference section */
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		1D6058910D05DD3D006BFB54 /* swyp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swyp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D6058910D05DD3D006BFB54 /* MultiBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		28EEBFDC1118E19E00187D67 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Shared/main.m; sourceTree = "<group>"; };
-		32CA4F630368D1EE00C91783 /* swypPhotos_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = swypPhotos_Prefix.pch; sourceTree = "<group>"; };
-		3E8358BC14F0AE9A001A2970 /* AppDelegate_Shared.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate_Shared.h; path = Shared/AppDelegate_Shared.h; sourceTree = "<group>"; };
+		32CA4F630368D1EE00C91783 /* MultiBoard_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiBoard_Prefix.pch; sourceTree = "<group>"; };
+		3E8358BC14F0AE9A001A2970 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Shared/AppDelegate.h; sourceTree = "<group>"; };
 		3E8358BE14F0AEB8001A2970 /* UIViewAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = UIViewAdditions.h; path = Shared/UIViewAdditions.h; sourceTree = "<group>"; };
 		3E8358BF14F0AEB8001A2970 /* UIViewAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = UIViewAdditions.m; path = Shared/UIViewAdditions.m; sourceTree = "<group>"; };
-		3E8358E914F0AFC8001A2970 /* AppDelegate_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate_iPad.h; sourceTree = "<group>"; };
-		3E8358EA14F0AFC8001A2970 /* AppDelegate_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate_iPad.m; sourceTree = "<group>"; };
-		3E8358EB14F0AFC8001A2970 /* MainWindow_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow_iPad.xib; sourceTree = "<group>"; };
-		3E8358EC14F0AFC8001A2970 /* AppDelegate_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate_iPhone.h; sourceTree = "<group>"; };
-		3E8358ED14F0AFC8001A2970 /* AppDelegate_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate_iPhone.m; sourceTree = "<group>"; };
-		3E8358EE14F0AFC8001A2970 /* MainWindow_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow_iPhone.xib; sourceTree = "<group>"; };
-		3E8358F514F0B032001A2970 /* AppDelegate_Shared.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate_Shared.m; path = Shared/AppDelegate_Shared.m; sourceTree = "<group>"; };
-		3E8358F814F0B059001A2970 /* AppDelegate_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate_iPad.h; sourceTree = "<group>"; };
-		3E8358F914F0B059001A2970 /* AppDelegate_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate_iPad.m; sourceTree = "<group>"; };
-		3E8358FA14F0B059001A2970 /* MainWindow_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow_iPad.xib; sourceTree = "<group>"; };
-		3E8358FC14F0B059001A2970 /* AppDelegate_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate_iPhone.h; sourceTree = "<group>"; };
-		3E8358FD14F0B059001A2970 /* AppDelegate_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate_iPhone.m; sourceTree = "<group>"; };
-		3E8358FE14F0B059001A2970 /* MainWindow_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow_iPhone.xib; sourceTree = "<group>"; };
+		3E8358F514F0B032001A2970 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Shared/AppDelegate.m; sourceTree = "<group>"; };
 		3E83590C14F0B2EC001A2970 /* KBView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KBView.h; path = Shared/KBView.h; sourceTree = SOURCE_ROOT; };
 		3E83590D14F0B2EC001A2970 /* KBView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KBView.m; path = Shared/KBView.m; sourceTree = SOURCE_ROOT; };
 		7901263D14C3723A005F423B /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
@@ -121,7 +103,7 @@
 		79C6E1711438EB7100920C64 /* swypDraftIcon114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = swypDraftIcon114.png; path = ../resource/swypDraftIcon114.png; sourceTree = "<group>"; };
 		79C6E1731438EB9800920C64 /* swypDraftIcon72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = swypDraftIcon72.png; path = ../resource/swypDraftIcon72.png; sourceTree = "<group>"; };
 		79CE44F614D9C111009EA4C0 /* swypWorkspaceBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = swypWorkspaceBackground.png; path = ../../../../swypCards/swyp/swypBundleResources/swypWorkspaceBackground.png; sourceTree = "<group>"; };
-		8D1107310486CEB800E47090 /* swyp-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "swyp-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* MultiBoard-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MultiBoard-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,7 +131,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1D6058910D05DD3D006BFB54 /* swyp.app */,
+				1D6058910D05DD3D006BFB54 /* MultiBoard.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -160,9 +142,9 @@
 				79B6DFE31441F1CE00CF0A28 /* User Interface */,
 				3E8358BE14F0AEB8001A2970 /* UIViewAdditions.h */,
 				3E8358BF14F0AEB8001A2970 /* UIViewAdditions.m */,
-				3E8358BC14F0AE9A001A2970 /* AppDelegate_Shared.h */,
-				3E8358F514F0B032001A2970 /* AppDelegate_Shared.m */,
-				8D1107310486CEB800E47090 /* swyp-Info.plist */,
+				3E8358BC14F0AE9A001A2970 /* AppDelegate.h */,
+				3E8358F514F0B032001A2970 /* AppDelegate.m */,
+				8D1107310486CEB800E47090 /* MultiBoard-Info.plist */,
 			);
 			name = Shared;
 			sourceTree = "<group>";
@@ -172,10 +154,6 @@
 			children = (
 				7902D67714D49C4D00C71731 /* libSwyp.xcodeproj */,
 				28EEBF621118D79A00187D67 /* Shared */,
-				3E8358F714F0B059001A2970 /* iPad */,
-				3E8358FB14F0B059001A2970 /* iPhone */,
-				3E8358E714F0AFC8001A2970 /* iPad */,
-				3E8358E814F0AFC8001A2970 /* iPhone */,
 				680FCC8013E7697800509CF2 /* Resources */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
@@ -187,7 +165,7 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
-				32CA4F630368D1EE00C91783 /* swypPhotos_Prefix.pch */,
+				32CA4F630368D1EE00C91783 /* MultiBoard_Prefix.pch */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
 			);
 			name = "Other Sources";
@@ -208,48 +186,6 @@
 				28EEBFDC1118E19E00187D67 /* CoreData.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		3E8358E714F0AFC8001A2970 /* iPad */ = {
-			isa = PBXGroup;
-			children = (
-				3E8358E914F0AFC8001A2970 /* AppDelegate_iPad.h */,
-				3E8358EA14F0AFC8001A2970 /* AppDelegate_iPad.m */,
-				3E8358EB14F0AFC8001A2970 /* MainWindow_iPad.xib */,
-			);
-			name = iPad;
-			path = /Users/ethanis/Cocoa/swypKB/src/../../swypPhotos/src/iPad;
-			sourceTree = "<absolute>";
-		};
-		3E8358E814F0AFC8001A2970 /* iPhone */ = {
-			isa = PBXGroup;
-			children = (
-				3E8358EC14F0AFC8001A2970 /* AppDelegate_iPhone.h */,
-				3E8358ED14F0AFC8001A2970 /* AppDelegate_iPhone.m */,
-				3E8358EE14F0AFC8001A2970 /* MainWindow_iPhone.xib */,
-			);
-			name = iPhone;
-			path = /Users/ethanis/Cocoa/swypKB/src/../../swypPhotos/src/iPhone;
-			sourceTree = "<absolute>";
-		};
-		3E8358F714F0B059001A2970 /* iPad */ = {
-			isa = PBXGroup;
-			children = (
-				3E8358F814F0B059001A2970 /* AppDelegate_iPad.h */,
-				3E8358F914F0B059001A2970 /* AppDelegate_iPad.m */,
-				3E8358FA14F0B059001A2970 /* MainWindow_iPad.xib */,
-			);
-			path = iPad;
-			sourceTree = "<group>";
-		};
-		3E8358FB14F0B059001A2970 /* iPhone */ = {
-			isa = PBXGroup;
-			children = (
-				3E8358FC14F0B059001A2970 /* AppDelegate_iPhone.h */,
-				3E8358FD14F0B059001A2970 /* AppDelegate_iPhone.m */,
-				3E8358FE14F0B059001A2970 /* MainWindow_iPhone.xib */,
-			);
-			path = iPhone;
 			sourceTree = "<group>";
 		};
 		680FCC8013E7697800509CF2 /* Resources */ = {
@@ -311,9 +247,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1D6058900D05DD3D006BFB54 /* swyp */ = {
+		1D6058900D05DD3D006BFB54 /* MultiBoard */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "swyp" */;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "MultiBoard" */;
 			buildPhases = (
 				1D60588D0D05DD3D006BFB54 /* Resources */,
 				1D60588E0D05DD3D006BFB54 /* Sources */,
@@ -324,9 +260,9 @@
 			dependencies = (
 				7902D68214D49C8500C71731 /* PBXTargetDependency */,
 			);
-			name = swyp;
+			name = MultiBoard;
 			productName = swypPhotos;
-			productReference = 1D6058910D05DD3D006BFB54 /* swyp.app */;
+			productReference = 1D6058910D05DD3D006BFB54 /* MultiBoard.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -335,10 +271,10 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0410;
+				LastUpgradeCheck = 0440;
 			};
-			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "swyp" */;
-			compatibilityVersion = "Xcode 3.1";
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "MultiBoard" */;
+			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
@@ -357,7 +293,7 @@
 			);
 			projectRoot = "";
 			targets = (
-				1D6058900D05DD3D006BFB54 /* swyp */,
+				1D6058900D05DD3D006BFB54 /* MultiBoard */,
 			);
 		};
 /* End PBXProject section */
@@ -395,10 +331,6 @@
 				7901265C14C38423005F423B /* swypPromptHud.png in Resources */,
 				7901265D14C38423005F423B /* swypPromptHud@2x.png in Resources */,
 				79CE44F714D9C111009EA4C0 /* swypWorkspaceBackground.png in Resources */,
-				3E8358F014F0AFC8001A2970 /* MainWindow_iPad.xib in Resources */,
-				3E8358F214F0AFC8001A2970 /* MainWindow_iPhone.xib in Resources */,
-				3E83590014F0B059001A2970 /* MainWindow_iPad.xib in Resources */,
-				3E83590214F0B059001A2970 /* MainWindow_iPhone.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,9 +344,7 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				79C50A63148B0AD2000FDCA1 /* KBViewController.m in Sources */,
 				3E8358C014F0AEE9001A2970 /* UIViewAdditions.m in Sources */,
-				3E8358F614F0B032001A2970 /* AppDelegate_Shared.m in Sources */,
-				3E8358FF14F0B059001A2970 /* AppDelegate_iPad.m in Sources */,
-				3E83590114F0B059001A2970 /* AppDelegate_iPhone.m in Sources */,
+				3E8358F614F0B032001A2970 /* AppDelegate.m in Sources */,
 				3E83590E14F0B2EC001A2970 /* KBView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -440,12 +370,12 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = swypPhotos_Prefix.pch;
+				GCC_PREFIX_HEADER = MultiBoard_Prefix.pch;
 				HEADER_SEARCH_PATHS = "../lib/**";
-				INFOPLIST_FILE = "swyp-Info.plist";
+				INFOPLIST_FILE = "MultiBoard-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_LDFLAGS = "-all_load";
-				PRODUCT_NAME = swyp;
+				PRODUCT_NAME = MultiBoard;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 			};
 			name = Debug;
@@ -461,12 +391,12 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = swypPhotos_Prefix.pch;
+				GCC_PREFIX_HEADER = MultiBoard_Prefix.pch;
 				HEADER_SEARCH_PATHS = "../lib/**";
-				INFOPLIST_FILE = "swyp-Info.plist";
+				INFOPLIST_FILE = "MultiBoard-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_LDFLAGS = "-all_load";
-				PRODUCT_NAME = swyp;
+				PRODUCT_NAME = MultiBoard;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -484,7 +414,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = "-all_load";
-				PREBINDING = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -501,12 +430,12 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = swypPhotos_Prefix.pch;
+				GCC_PREFIX_HEADER = MultiBoard_Prefix.pch;
 				HEADER_SEARCH_PATHS = "../lib/**";
-				INFOPLIST_FILE = "swyp-Info.plist";
+				INFOPLIST_FILE = "MultiBoard-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_LDFLAGS = "-all_load";
-				PRODUCT_NAME = swyp;
+				PRODUCT_NAME = MultiBoard;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -523,7 +452,6 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				OTHER_LDFLAGS = "-all_load";
-				PREBINDING = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2FD97074-06EC-499A-A932-A25F51E8A741";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -542,7 +470,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = "-all_load";
-				PREBINDING = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -551,7 +478,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "swyp" */ = {
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "MultiBoard" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,
@@ -561,7 +488,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "swyp" */ = {
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "MultiBoard" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,

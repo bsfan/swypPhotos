@@ -6,26 +6,25 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "AppDelegate_Shared.h"
+#import "AppDelegate.h"
 
-
-@implementation AppDelegate_Shared
-@synthesize window;
+@implementation AppDelegate
+@synthesize window = _window;
 
 #pragma mark -
 #pragma mark Application lifecycle
 
--(BOOL) application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
+- (void)applicationDidFinishLaunching:(UIApplication *)application {
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
     kbVC	=	[[KBViewController alloc] init];
 	[[kbVC view] setFrame:self.window.frame];
     
     self.window.autoresizesSubviews = YES;	
     self.window.backgroundColor = [UIColor blackColor];
+    
 	[self.window setRootViewController:kbVC];
     [self.window makeKeyAndVisible];
-    SRELS(kbVC);
-    
-	return TRUE;
 }
 
 /**
@@ -34,7 +33,7 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
 }
 
--(void)applicationDidBecomeActive:(UIApplication *)application{
+- (void)applicationDidBecomeActive:(UIApplication *)application{
 
 }
 
@@ -60,8 +59,7 @@
 
 - (void)dealloc {
     SRELS(kbVC);
-	
-    [window release];
+    [_window release];
     [super dealloc];
 }
 

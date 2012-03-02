@@ -19,6 +19,7 @@ swypConnectionSessionDataDelegate, swypContentDataSourceProtocol> {
     KBView *_keyboard;
     UIButton                    *   _activateSwypButton;
     NSDictionary *_lastKeyPress;
+    double _connectionTime;
 }
 @property (nonatomic, readonly) swypWorkspaceViewController * swypWorkspace;
 @property (nonatomic, retain) UITextView *textView;
