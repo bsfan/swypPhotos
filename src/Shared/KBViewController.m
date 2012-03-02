@@ -110,7 +110,12 @@ static NSString *kbType = @"kbType";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(connected) name:@"connected" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleSwyp:) name:@"swypin" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleSwyp:) name:@"swypout" object:nil];
-
+    
+    // comment this out
+    _keyboard = [[KBView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    //[_keyboard makeLeftKeyboard];
+    [_keyboard makeRightKeyboard];
+    [self.view addSubview:_keyboard];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

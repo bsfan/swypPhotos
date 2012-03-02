@@ -12,6 +12,8 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		28EEBFDD1118E19E00187D67 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28EEBFDC1118E19E00187D67 /* CoreData.framework */; };
+		3E20B98315012CB700DE4A19 /* KBButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E20B98215012CB700DE4A19 /* KBButton.m */; };
+		3E20B9861501318600DE4A19 /* UIImage+Colors.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E20B9851501318500DE4A19 /* UIImage+Colors.m */; };
 		3E8358C014F0AEE9001A2970 /* UIViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E8358BF14F0AEB8001A2970 /* UIViewAdditions.m */; };
 		3E8358F614F0B032001A2970 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E8358F514F0B032001A2970 /* AppDelegate.m */; };
 		3E83590E14F0B2EC001A2970 /* KBView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E83590D14F0B2EC001A2970 /* KBView.m */; };
@@ -68,6 +70,10 @@
 		28EEBFDC1118E19E00187D67 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Shared/main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* MultiBoard_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiBoard_Prefix.pch; sourceTree = "<group>"; };
+		3E20B98115012CB700DE4A19 /* KBButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KBButton.h; path = Shared/KBButton.h; sourceTree = SOURCE_ROOT; };
+		3E20B98215012CB700DE4A19 /* KBButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KBButton.m; path = Shared/KBButton.m; sourceTree = SOURCE_ROOT; };
+		3E20B9841501318500DE4A19 /* UIImage+Colors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Colors.h"; path = "Shared/UIImage+Colors.h"; sourceTree = SOURCE_ROOT; };
+		3E20B9851501318500DE4A19 /* UIImage+Colors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Colors.m"; path = "Shared/UIImage+Colors.m"; sourceTree = SOURCE_ROOT; };
 		3E8358BC14F0AE9A001A2970 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Shared/AppDelegate.h; sourceTree = "<group>"; };
 		3E8358BE14F0AEB8001A2970 /* UIViewAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = UIViewAdditions.h; path = Shared/UIViewAdditions.h; sourceTree = "<group>"; };
 		3E8358BF14F0AEB8001A2970 /* UIViewAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = UIViewAdditions.m; path = Shared/UIViewAdditions.m; sourceTree = "<group>"; };
@@ -237,6 +243,10 @@
 				79C50A62148B0AD2000FDCA1 /* KBViewController.m */,
 				3E83590C14F0B2EC001A2970 /* KBView.h */,
 				3E83590D14F0B2EC001A2970 /* KBView.m */,
+				3E20B98115012CB700DE4A19 /* KBButton.h */,
+				3E20B98215012CB700DE4A19 /* KBButton.m */,
+				3E20B9841501318500DE4A19 /* UIImage+Colors.h */,
+				3E20B9851501318500DE4A19 /* UIImage+Colors.m */,
 				79B6E0451441F94800CF0A28 /* UIViewAdditions.h */,
 				79B6E0461441F94800CF0A28 /* UIViewAdditions.m */,
 			);
@@ -346,6 +356,8 @@
 				3E8358C014F0AEE9001A2970 /* UIViewAdditions.m in Sources */,
 				3E8358F614F0B032001A2970 /* AppDelegate.m in Sources */,
 				3E83590E14F0B2EC001A2970 /* KBView.m in Sources */,
+				3E20B98315012CB700DE4A19 /* KBButton.m in Sources */,
+				3E20B9861501318600DE4A19 /* UIImage+Colors.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

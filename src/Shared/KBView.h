@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "KBButton.h"
 
 @protocol KBViewDelegate <NSObject>
 
@@ -14,7 +15,11 @@
 
 @end
 
-@interface KBView : UIView
+@interface KBView : UIView {
+    BOOL _isRightKB;
+    BOOL _isShowingSymbols;
+    KBButton *_symbolButton;
+}
 
 - (void)makeLeftKeyboard;
 - (void)makeRightKeyboard;

@@ -19,51 +19,81 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+        _symbolButton = [[KBButton alloc] init];
+        [_symbolButton setTitle:@"!#?*" forState:UIControlStateNormal];
+        [_symbolButton addTarget:self action:@selector(toggleSymbols) forControlEvents:UIControlEventTouchUpInside];
+        _isShowingSymbols = NO;
     }
     return self;
 }
 
-- (void)makeKeyboard:(NSArray *)kbArray{
+- (void)makeKeyboard:(NSArray *)kbArray withSpaceBar:(BOOL)hasSpacebar {
+    [self removeAllSubviews];
+    
     int row = 0;
-    int WIDTH = 54;
-    int HEIGHT = 124;
-    int H_SPACE = 8;
+    int WIDTH = 60;
+    int HEIGHT = 108;
+    int H_SPACE =8;
     int V_SPACE = 8;
     
     for (NSString *chars in kbArray){        
         for (int i = 0; i < chars.length; i++){
             unichar character = [chars characterAtIndex:i];
-            NSLog(@"%@", [NSString stringWithCharacters:&character length:1]);
             
             NSString *charString = [NSString stringWithCharacters:&character length:1];
-            
-            UIButton *key = [UIButton buttonWithType:UIButtonTypeCustom];
-            key.backgroundColor = [[UIColor grayColor] colorWithAlphaComponent:0.25];
-            key.layer.cornerRadius = 8;
-            key.layer.borderColor = [UIColor darkGrayColor].CGColor;
-            
-            key.layer.shadowOpacity = 0.75;
-            key.layer.shadowRadius = 2;
-            key.layer.shadowColor = [UIColor blackColor].CGColor;
-            key.layer.shadowOffset = CGSizeMake(0, 2);
-            
-            key.frame = CGRectMake(i*(WIDTH+H_SPACE)+H_SPACE, row*(HEIGHT+V_SPACE)+2*V_SPACE, WIDTH, HEIGHT);
-            [key setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin| UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleBottomMargin|UIViewAutoresizingFlexibleTopMargin];
+            KBButton *key = [[KBButton alloc] initWithFrame:CGRectMake(i*(WIDTH+H_SPACE)-H_SPACE, row*(HEIGHT+V_SPACE)-V_SPACE, WIDTH, HEIGHT)];
             [key setTitle:charString forState:UIControlStateNormal];
             [key addTarget:self.delegate action:@selector(screenKeyPressed:) forControlEvents:UIControlEventTouchUpInside];
             [self addSubview:key];
         }
         row += 1;
     }
+    
+    
+    CGFloat symbolX = 0;
+    if (_isRightKB){
+        symbolX = self.width - WIDTH;
+    }
+    _symbolButton.frame = CGRectMake(symbolX, (row*(HEIGHT+V_SPACE)+V_SPACE), WIDTH, HEIGHT);
+    [self addSubview:_symbolButton];
+    
+    if (hasSpacebar){
+        CGFloat spaceX;
+        CGFloat spaceWidth = 2*(WIDTH+H_SPACE);
+        if (_isRightKB){
+            spaceX = 0;
+        } else {
+            spaceX = self.frame.size.width-spaceWidth;
+        }
+        
+        KBButton *spaceBar = [[KBButton alloc] initWithFrame:CGRectMake(spaceX, (row*(HEIGHT+V_SPACE)+V_SPACE), spaceWidth, HEIGHT)];
+        [spaceBar setTitle:@" " forState:UIControlStateNormal];
+        [spaceBar addTarget:self.delegate action:@selector(screenKeyPressed:) forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:spaceBar];
+    }
 }
 
 - (void)makeLeftKeyboard {
     NSArray *leftKB = @[@"qwert", @"asdfg", @"^zxcv"];
-    [self makeKeyboard:leftKB];
+    _isRightKB = NO;
+    [self makeKeyboard:leftKB withSpaceBar:YES];
 }
 - (void)makeRightKeyboard {
     NSArray *rightKB = @[@"yuiop",@"hjkl\n", @"bnm,.^"];
-    [self makeKeyboard:rightKB];
+    _isRightKB = YES;
+    [self makeKeyboard:rightKB withSpaceBar:YES];
+}
+
+- (void)toggleSymbols {
+    _isShowingSymbols = !_isShowingSymbols;
+    if (_isShowingSymbols){
+        [_symbolButton setTitle:@"abc" forState:UIControlStateNormal];
+        NSArray *symbolKB = @[@"12345",@"67890",@"+-*=/"];
+        [self makeKeyboard:symbolKB withSpaceBar:NO];
+    } else {
+        [_symbolButton setTitle:@"!#?*" forState:UIControlStateNormal];
+        _isRightKB ? [self makeRightKeyboard] : [self makeLeftKeyboard];
+    }
 }
 
 /*
