@@ -107,9 +107,9 @@ static NSString *kbType = @"kbType";
     _uncertainText = [NSMutableArray new];
     _certainText = @"";
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(connected) name:@"connected" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleSwyp:) name:@"swypin" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleSwyp:) name:@"swypout" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(connected) name:@"swypConnected" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleSwyp:) name:@"swypIn" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleSwyp:) name:@"swypOut" object:nil];
     
     /* comment this out
     _keyboard = [[KBView alloc] initWithFrame:[UIScreen mainScreen].bounds];
@@ -226,7 +226,7 @@ inConnectionSession:(swypConnectionSession *)session{
 }
 
 - (void)handleSwyp:(NSNotification *)notification {
-    swypInfoRef *swypInfo = [[notification userInfo] objectForKey:@"swyp"];
+    swypInfoRef *swypInfo = [[notification userInfo] objectForKey:@"gesture"];
     lastEdge = [swypInfo screenEdgeOfSwyp];
 }
 
@@ -240,7 +240,7 @@ inConnectionSession:(swypConnectionSession *)session{
     } else if (lastEdge == swypScreenEdgeTypeRight){
         [_keyboard makeLeftKeyboard];
     } else {
-        NSLog(@"Unexpected keyboard type.");
+        NSLog(@"Unexpected keyboard type. %i", lastEdge);
     }
     [self.view addSubview:_keyboard];
     
